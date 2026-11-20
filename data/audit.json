@@ -1,0 +1,374 @@
+[
+  {
+    "file": "00006-00000003.soc",
+    "collection": "00006 - skate",
+    "k": 14,
+    "voters": 9,
+    "condorcet": [
+      9
+    ],
+    "cycles": 0,
+    "cycle_examples": [],
+    "borda": 9,
+    "borda_gap": 0.07692307692307687,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000003.soc"
+  },
+  {
+    "file": "00006-00000004.soc",
+    "collection": "00006 - skate",
+    "k": 14,
+    "voters": 9,
+    "condorcet": [
+      10
+    ],
+    "cycles": 0,
+    "cycle_examples": [],
+    "borda": 10,
+    "borda_gap": 0.08547008547008539,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000004.soc"
+  },
+  {
+    "file": "00006-00000007.soc",
+    "collection": "00006 - skate",
+    "k": 23,
+    "voters": 9,
+    "condorcet": [
+      19
+    ],
+    "cycles": 0,
+    "cycle_examples": [],
+    "borda": 19,
+    "borda_gap": 0.030303030303030387,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000007.soc"
+  },
+  {
+    "file": "00006-00000008.soc",
+    "collection": "00006 - skate",
+    "k": 23,
+    "voters": 9,
+    "condorcet": [
+      20
+    ],
+    "cycles": 0,
+    "cycle_examples": [],
+    "borda": 20,
+    "borda_gap": 0.025252525252525304,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000008.soc"
+  },
+  {
+    "file": "00006-00000011.soc",
+    "collection": "00006 - skate",
+    "k": 20,
+    "voters": 9,
+    "condorcet": [
+      11
+    ],
+    "cycles": 0,
+    "cycle_examples": [],
+    "borda": 11,
+    "borda_gap": 0.017543859649122973,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000011.soc"
+  },
+  {
+    "file": "00006-00000012.soc",
+    "collection": "00006 - skate",
+    "k": 20,
+    "voters": 9,
+    "condorcet": [
+      19
+    ],
+    "cycles": 0,
+    "cycle_examples": [],
+    "borda": 19,
+    "borda_gap": 0.05847953216374269,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000012.soc"
+  },
+  {
+    "file": "00006-00000018.soc",
+    "collection": "00006 - skate",
+    "k": 24,
+    "voters": 9,
+    "condorcet": [
+      21
+    ],
+    "cycles": 0,
+    "cycle_examples": [],
+    "borda": 21,
+    "borda_gap": 0.048309178743961345,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000018.soc"
+  },
+  {
+    "file": "00006-00000021.soc",
+    "collection": "00006 - skate",
+    "k": 18,
+    "voters": 7,
+    "condorcet": [
+      14
+    ],
+    "cycles": 0,
+    "cycle_examples": [],
+    "borda": 14,
+    "borda_gap": 0.1512605042016808,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000021.soc"
+  },
+  {
+    "file": "00006-00000022.soc",
+    "collection": "00006 - skate",
+    "k": 18,
+    "voters": 7,
+    "condorcet": [
+      2
+    ],
+    "cycles": 0,
+    "cycle_examples": [],
+    "borda": 2,
+    "borda_gap": 0.025210084033613356,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000022.soc"
+  },
+  {
+    "file": "00006-00000028.soc",
+    "collection": "00006 - skate",
+    "k": 24,
+    "voters": 9,
+    "condorcet": [
+      23
+    ],
+    "cycles": 2,
+    "cycle_examples": [
+      [
+        1,
+        4,
+        16
+      ],
+      [
+        1,
+        10,
+        16
+      ]
+    ],
+    "borda": 23,
+    "borda_gap": 0.024154589371980784,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000028.soc"
+  },
+  {
+    "file": "00006-00000029.soc",
+    "collection": "00006 - skate",
+    "k": 19,
+    "voters": 9,
+    "condorcet": [
+      8
+    ],
+    "cycles": 1,
+    "cycle_examples": [
+      [
+        1,
+        3,
+        6
+      ]
+    ],
+    "borda": 8,
+    "borda_gap": 0.006172839506172867,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000029.soc"
+  },
+  {
+    "file": "00006-00000032.soc",
+    "collection": "00006 - skate",
+    "k": 23,
+    "voters": 9,
+    "condorcet": [
+      11
+    ],
+    "cycles": 2,
+    "cycle_examples": [
+      [
+        3,
+        5,
+        22
+      ],
+      [
+        3,
+        13,
+        22
+      ]
+    ],
+    "borda": 8,
+    "borda_gap": 0.0,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000032.soc"
+  },
+  {
+    "file": "00006-00000033.soc",
+    "collection": "00006 - skate",
+    "k": 23,
+    "voters": 9,
+    "condorcet": [
+      22
+    ],
+    "cycles": 4,
+    "cycle_examples": [
+      [
+        14,
+        16,
+        17
+      ],
+      [
+        14,
+        17,
+        19
+      ],
+      [
+        14,
+        19,
+        20
+      ]
+    ],
+    "borda": 22,
+    "borda_gap": 0.02020202020202022,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000033.soc"
+  },
+  {
+    "file": "00006-00000034.soc",
+    "collection": "00006 - skate",
+    "k": 23,
+    "voters": 9,
+    "condorcet": [
+      20
+    ],
+    "cycles": 0,
+    "cycle_examples": [],
+    "borda": 20,
+    "borda_gap": 0.03535353535353536,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000034.soc"
+  },
+  {
+    "file": "00006-00000035.soc",
+    "collection": "00006 - skate",
+    "k": 18,
+    "voters": 9,
+    "condorcet": [
+      16
+    ],
+    "cycles": 0,
+    "cycle_examples": [],
+    "borda": 16,
+    "borda_gap": 0.05882352941176472,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000035.soc"
+  },
+  {
+    "file": "00006-00000036.soc",
+    "collection": "00006 - skate",
+    "k": 18,
+    "voters": 9,
+    "condorcet": [
+      5
+    ],
+    "cycles": 3,
+    "cycle_examples": [
+      [
+        7,
+        13,
+        16
+      ],
+      [
+        9,
+        13,
+        16
+      ],
+      [
+        10,
+        13,
+        16
+      ]
+    ],
+    "borda": 5,
+    "borda_gap": 0.0065359477124184995,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000036.soc"
+  },
+  {
+    "file": "00006-00000037.soc",
+    "collection": "00006 - skate",
+    "k": 19,
+    "voters": 9,
+    "condorcet": [
+      16
+    ],
+    "cycles": 0,
+    "cycle_examples": [],
+    "borda": 16,
+    "borda_gap": 0.05555555555555558,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000037.soc"
+  },
+  {
+    "file": "00006-00000044.soc",
+    "collection": "00006 - skate",
+    "k": 20,
+    "voters": 9,
+    "condorcet": [
+      18
+    ],
+    "cycles": 1,
+    "cycle_examples": [
+      [
+        14,
+        15,
+        19
+      ]
+    ],
+    "borda": 18,
+    "borda_gap": 0.10526315789473684,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000044.soc"
+  },
+  {
+    "file": "00006-00000046.soc",
+    "collection": "00006 - skate",
+    "k": 30,
+    "voters": 7,
+    "condorcet": [
+      24
+    ],
+    "cycles": 1,
+    "cycle_examples": [
+      [
+        11,
+        15,
+        21
+      ]
+    ],
+    "borda": 24,
+    "borda_gap": 0.024630541871921152,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000046.soc"
+  },
+  {
+    "file": "00006-00000048.soc",
+    "collection": "00006 - skate",
+    "k": 24,
+    "voters": 9,
+    "condorcet": [
+      19
+    ],
+    "cycles": 0,
+    "cycle_examples": [],
+    "borda": 19,
+    "borda_gap": 0.04830917874396157,
+    "pair_ties": 0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00006%20-%20skate/00006-00000048.soc"
+  }
+]

@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.nbc
+*.nbi
+*.aux
+*.log
+*.out
+*.toc
+*.xdv
+.DS_Store

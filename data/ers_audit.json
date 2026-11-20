@@ -1,0 +1,1419 @@
+[
+  {
+    "file": "00007-00000001.soi",
+    "k": 10,
+    "voters": 380,
+    "cw": [
+      0
+    ],
+    "cycles": 1,
+    "examples": [
+      [
+        1,
+        3,
+        6
+      ]
+    ],
+    "gap": 0.04576023391812867,
+    "h": 0.0013157894736842146,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000001.soi"
+  },
+  {
+    "file": "00007-00000002.soi",
+    "k": 19,
+    "voters": 83,
+    "cw": [
+      13
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.006693440428380049,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000002.soi"
+  },
+  {
+    "file": "00007-00000003.soi",
+    "k": 10,
+    "voters": 963,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.15310949578862365,
+    "h": 0.0005192107995846129,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000003.soi"
+  },
+  {
+    "file": "00007-00000004.soi",
+    "k": 20,
+    "voters": 76,
+    "cw": [
+      17
+    ],
+    "cycles": 3,
+    "examples": [
+      [
+        0,
+        6,
+        19
+      ],
+      [
+        4,
+        10,
+        12
+      ],
+      [
+        7,
+        10,
+        12
+      ]
+    ],
+    "gap": 0.018698060941828132,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000004.soi"
+  },
+  {
+    "file": "00007-00000005.soi",
+    "k": 26,
+    "voters": 104,
+    "cw": [],
+    "cycles": 13,
+    "examples": [
+      [
+        0,
+        9,
+        14
+      ],
+      [
+        0,
+        9,
+        23
+      ],
+      [
+        0,
+        9,
+        25
+      ],
+      [
+        0,
+        11,
+        25
+      ],
+      [
+        1,
+        3,
+        17
+      ]
+    ],
+    "gap": 0.015769230769230758,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000005.soi"
+  },
+  {
+    "file": "00007-00000006.soi",
+    "k": 17,
+    "voters": 73,
+    "cw": [
+      9
+    ],
+    "cycles": 5,
+    "examples": [
+      [
+        0,
+        6,
+        15
+      ],
+      [
+        2,
+        3,
+        7
+      ],
+      [
+        2,
+        7,
+        11
+      ],
+      [
+        3,
+        4,
+        7
+      ],
+      [
+        4,
+        7,
+        8
+      ]
+    ],
+    "gap": 0.13912671232876705,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000006.soi"
+  },
+  {
+    "file": "00007-00000007.soi",
+    "k": 21,
+    "voters": 77,
+    "cw": [
+      11
+    ],
+    "cycles": 9,
+    "examples": [
+      [
+        1,
+        7,
+        8
+      ],
+      [
+        1,
+        7,
+        12
+      ],
+      [
+        1,
+        9,
+        12
+      ],
+      [
+        1,
+        10,
+        12
+      ],
+      [
+        2,
+        9,
+        12
+      ]
+    ],
+    "gap": 0.04285714285714293,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000007.soi"
+  },
+  {
+    "file": "00007-00000008.soi",
+    "k": 3,
+    "voters": 129,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.4883720930232558,
+    "h": 0.17441860465116277,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000008.soi"
+  },
+  {
+    "file": "00007-00000009.soi",
+    "k": 13,
+    "voters": 867,
+    "cw": [
+      9
+    ],
+    "cycles": 1,
+    "examples": [
+      [
+        7,
+        8,
+        10
+      ]
+    ],
+    "gap": 0.0322952710495964,
+    "h": 0.0011534025374855816,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000009.soi"
+  },
+  {
+    "file": "00007-00000010.soi",
+    "k": 6,
+    "voters": 976,
+    "cw": [
+      1
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.05553278688524599,
+    "h": 0.0005122950819672067,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000010.soi"
+  },
+  {
+    "file": "00007-00000011.soi",
+    "k": 7,
+    "voters": 860,
+    "cw": [
+      4
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.024903100775193865,
+    "h": 0.006395348837209325,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000011.soi"
+  },
+  {
+    "file": "00007-00000012.soi",
+    "k": 9,
+    "voters": 371,
+    "cw": [
+      2
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.0005053908355795445,
+    "h": 0.021563342318059342,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000012.soi"
+  },
+  {
+    "file": "00007-00000013.soi",
+    "k": 5,
+    "voters": 2785,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.006373429084380655,
+    "h": 0.006822262118491906,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000013.soi"
+  },
+  {
+    "file": "00007-00000014.soi",
+    "k": 8,
+    "voters": 741,
+    "cw": [
+      1
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.00665124349334878,
+    "h": 0.0006747638326585204,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000014.soi"
+  },
+  {
+    "file": "00007-00000015.soi",
+    "k": 11,
+    "voters": 44,
+    "cw": [
+      10
+    ],
+    "cycles": 3,
+    "examples": [
+      [
+        0,
+        6,
+        8
+      ],
+      [
+        0,
+        7,
+        8
+      ],
+      [
+        0,
+        8,
+        9
+      ]
+    ],
+    "gap": 0.08522727272727271,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000015.soi"
+  },
+  {
+    "file": "00007-00000016.soi",
+    "k": 29,
+    "voters": 91,
+    "cw": [
+      2
+    ],
+    "cycles": 16,
+    "examples": [
+      [
+        3,
+        10,
+        14
+      ],
+      [
+        3,
+        14,
+        15
+      ],
+      [
+        3,
+        14,
+        17
+      ],
+      [
+        3,
+        14,
+        18
+      ],
+      [
+        3,
+        14,
+        28
+      ]
+    ],
+    "gap": 0.015894819466247934,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000016.soi"
+  },
+  {
+    "file": "00007-00000017.soi",
+    "k": 5,
+    "voters": 82,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.0929878048780487,
+    "h": 0.024390243902439046,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000017.soi"
+  },
+  {
+    "file": "00007-00000018.soi",
+    "k": 3,
+    "voters": 183,
+    "cw": [
+      1
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.4112021857923496,
+    "h": 0.04098360655737704,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000018.soi"
+  },
+  {
+    "file": "00007-00000019.soi",
+    "k": 5,
+    "voters": 100,
+    "cw": [],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.022499999999999853,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000019.soi"
+  },
+  {
+    "file": "00007-00000020.soi",
+    "k": 6,
+    "voters": 77,
+    "cw": [
+      2
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.17662337662337657,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000020.soi"
+  },
+  {
+    "file": "00007-00000021.soi",
+    "k": 4,
+    "voters": 115,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.1028985507246376,
+    "h": 0.04347826086956519,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000021.soi"
+  },
+  {
+    "file": "00007-00000022.soi",
+    "k": 3,
+    "voters": 68,
+    "cw": [
+      2
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.09926470588235292,
+    "h": 0.04411764705882354,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000022.soi"
+  },
+  {
+    "file": "00007-00000023.soi",
+    "k": 15,
+    "voters": 981,
+    "cw": [
+      5
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.06309159749526716,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000023.soi"
+  },
+  {
+    "file": "00007-00000024.soi",
+    "k": 3,
+    "voters": 58,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.0818965517241379,
+    "h": 0.06034482758620685,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000024.soi"
+  },
+  {
+    "file": "00007-00000025.soi",
+    "k": 4,
+    "voters": 32,
+    "cw": [
+      3
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.125,
+    "h": 0.09375,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000025.soi"
+  },
+  {
+    "file": "00007-00000026.soi",
+    "k": 5,
+    "voters": 148,
+    "cw": [
+      3
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.11317567567567555,
+    "h": 0.0033783783783783994,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000026.soi"
+  },
+  {
+    "file": "00007-00000027.soi",
+    "k": 18,
+    "voters": 9,
+    "cw": [
+      14
+    ],
+    "cycles": 4,
+    "examples": [
+      [
+        0,
+        2,
+        5
+      ],
+      [
+        0,
+        2,
+        7
+      ],
+      [
+        2,
+        5,
+        16
+      ],
+      [
+        3,
+        7,
+        8
+      ]
+    ],
+    "gap": 0.06535947712418289,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000027.soi"
+  },
+  {
+    "file": "00007-00000028.soi",
+    "k": 14,
+    "voters": 63,
+    "cw": [
+      9
+    ],
+    "cycles": 3,
+    "examples": [
+      [
+        0,
+        4,
+        11
+      ],
+      [
+        0,
+        11,
+        13
+      ],
+      [
+        4,
+        5,
+        11
+      ]
+    ],
+    "gap": 0.09890109890109888,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000028.soi"
+  },
+  {
+    "file": "00007-00000029.soi",
+    "k": 17,
+    "voters": 176,
+    "cw": [
+      5
+    ],
+    "cycles": 9,
+    "examples": [
+      [
+        1,
+        8,
+        9
+      ],
+      [
+        1,
+        9,
+        15
+      ],
+      [
+        4,
+        9,
+        13
+      ],
+      [
+        4,
+        15,
+        16
+      ],
+      [
+        8,
+        9,
+        13
+      ]
+    ],
+    "gap": 0.12269176136363646,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000029.soi"
+  },
+  {
+    "file": "00007-00000030.soi",
+    "k": 14,
+    "voters": 43,
+    "cw": [
+      8
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.14132379248658322,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000030.soi"
+  },
+  {
+    "file": "00007-00000031.soi",
+    "k": 10,
+    "voters": 923,
+    "cw": [
+      3
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.05820392440110744,
+    "h": 0.00325027085590468,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000031.soi"
+  },
+  {
+    "file": "00007-00000032.soi",
+    "k": 13,
+    "voters": 575,
+    "cw": [
+      7
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.06384057971014478,
+    "h": 0.00260869565217392,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000032.soi"
+  },
+  {
+    "file": "00007-00000033.soi",
+    "k": 16,
+    "voters": 750,
+    "cw": [
+      0
+    ],
+    "cycles": 1,
+    "examples": [
+      [
+        1,
+        7,
+        14
+      ]
+    ],
+    "gap": 0.09786666666666677,
+    "h": 0.0013333333333332975,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000033.soi"
+  },
+  {
+    "file": "00007-00000034.soi",
+    "k": 4,
+    "voters": 561,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.31016042780748665,
+    "h": 0.0017825311942959443,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000034.soi"
+  },
+  {
+    "file": "00007-00000035.soi",
+    "k": 6,
+    "voters": 41,
+    "cw": [
+      3
+    ],
+    "cycles": 1,
+    "examples": [
+      [
+        0,
+        2,
+        5
+      ]
+    ],
+    "gap": 0.024390243902438935,
+    "h": 0.012195121951219523,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000035.soi"
+  },
+  {
+    "file": "00007-00000036.soi",
+    "k": 10,
+    "voters": 667,
+    "cw": [
+      4
+    ],
+    "cycles": 1,
+    "examples": [
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "gap": 0.061969015492253754,
+    "h": 0.0007496251874062887,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000036.soi"
+  },
+  {
+    "file": "00007-00000037.soi",
+    "k": 10,
+    "voters": 460,
+    "cw": [
+      9
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.05132850241545894,
+    "h": 0.011956521739130421,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000037.soi"
+  },
+  {
+    "file": "00007-00000038.soi",
+    "k": 11,
+    "voters": 922,
+    "cw": [
+      4
+    ],
+    "cycles": 1,
+    "examples": [
+      [
+        0,
+        1,
+        9
+      ]
+    ],
+    "gap": 0.1092733188720173,
+    "h": 0.0032537960954447387,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000038.soi"
+  },
+  {
+    "file": "00007-00000039.soi",
+    "k": 10,
+    "voters": 302,
+    "cw": [
+      8
+    ],
+    "cycles": 1,
+    "examples": [
+      [
+        3,
+        7,
+        9
+      ]
+    ],
+    "gap": 0.0579470198675498,
+    "h": 0.0016556291390728561,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000039.soi"
+  },
+  {
+    "file": "00007-00000040.soi",
+    "k": 13,
+    "voters": 680,
+    "cw": [
+      9
+    ],
+    "cycles": 1,
+    "examples": [
+      [
+        5,
+        7,
+        12
+      ]
+    ],
+    "gap": 0.03731617647058827,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000040.soi"
+  },
+  {
+    "file": "00007-00000041.soi",
+    "k": 9,
+    "voters": 306,
+    "cw": [
+      3
+    ],
+    "cycles": 2,
+    "examples": [
+      [
+        1,
+        2,
+        7
+      ],
+      [
+        2,
+        6,
+        7
+      ]
+    ],
+    "gap": 0.01736111111111116,
+    "h": 0.0016339869281045694,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000041.soi"
+  },
+  {
+    "file": "00007-00000042.soi",
+    "k": 7,
+    "voters": 216,
+    "cw": [
+      1
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.01620370370370361,
+    "h": 0.002314814814814825,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000042.soi"
+  },
+  {
+    "file": "00007-00000043.soi",
+    "k": 7,
+    "voters": 683,
+    "cw": [
+      5
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.048926305514885415,
+    "h": 0.00512445095168379,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000043.soi"
+  },
+  {
+    "file": "00007-00000044.soi",
+    "k": 9,
+    "voters": 280,
+    "cw": [
+      8
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.1294642857142856,
+    "h": 0.0017857142857142794,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000044.soi"
+  },
+  {
+    "file": "00007-00000045.soi",
+    "k": 6,
+    "voters": 196,
+    "cw": [
+      0
+    ],
+    "cycles": 1,
+    "examples": [
+      [
+        2,
+        3,
+        4
+      ]
+    ],
+    "gap": 0.0954081632653061,
+    "h": 0.007653061224489777,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000045.soi"
+  },
+  {
+    "file": "00007-00000046.soi",
+    "k": 4,
+    "voters": 199,
+    "cw": [
+      3
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.03350083752093824,
+    "h": 0.040201005025125636,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000046.soi"
+  },
+  {
+    "file": "00007-00000047.soi",
+    "k": 4,
+    "voters": 166,
+    "cw": [
+      3
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.025100401606425793,
+    "h": 0.027108433734939763,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000047.soi"
+  },
+  {
+    "file": "00007-00000048.soi",
+    "k": 7,
+    "voters": 155,
+    "cw": [
+      2
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.02849462365591393,
+    "h": 0.003225806451612856,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000048.soi"
+  },
+  {
+    "file": "00007-00000049.soi",
+    "k": 3,
+    "voters": 192,
+    "cw": [
+      1
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.03385416666666674,
+    "h": 0.015625,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000049.soi"
+  },
+  {
+    "file": "00007-00000050.soi",
+    "k": 10,
+    "voters": 195,
+    "cw": [
+      6
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.2430199430199429,
+    "h": 0.017948717948717996,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000050.soi"
+  },
+  {
+    "file": "00007-00000051.soi",
+    "k": 6,
+    "voters": 191,
+    "cw": [
+      5
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.2010471204188483,
+    "h": 0.0732984293193717,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000051.soi"
+  },
+  {
+    "file": "00007-00000052.soi",
+    "k": 14,
+    "voters": 180,
+    "cw": [],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.10897435897435892,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000052.soi"
+  },
+  {
+    "file": "00007-00000053.soi",
+    "k": 4,
+    "voters": 49,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.06802721088435382,
+    "h": 0.10204081632653061,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000053.soi"
+  },
+  {
+    "file": "00007-00000054.soi",
+    "k": 9,
+    "voters": 86,
+    "cw": [
+      4
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.014534883720930258,
+    "h": 0.023255813953488413,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000054.soi"
+  },
+  {
+    "file": "00007-00000055.soi",
+    "k": 17,
+    "voters": 79,
+    "cw": [
+      8
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.055379746835443,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000055.soi"
+  },
+  {
+    "file": "00007-00000056.soi",
+    "k": 9,
+    "voters": 525,
+    "cw": [
+      4
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.07678571428571435,
+    "h": 0.0009523809523809268,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000056.soi"
+  },
+  {
+    "file": "00007-00000057.soi",
+    "k": 8,
+    "voters": 499,
+    "cw": [
+      3
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.1378471228170628,
+    "h": 0.003006012024048099,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000057.soi"
+  },
+  {
+    "file": "00007-00000058.soi",
+    "k": 3,
+    "voters": 272,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.02941176470588247,
+    "h": 0.03308823529411764,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000058.soi"
+  },
+  {
+    "file": "00007-00000059.soi",
+    "k": 5,
+    "voters": 525,
+    "cw": [
+      3
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.07714285714285696,
+    "h": 0.017142857142857126,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000059.soi"
+  },
+  {
+    "file": "00007-00000060.soi",
+    "k": 3,
+    "voters": 253,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.2519762845849801,
+    "h": 0.02371541501976282,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000060.soi"
+  },
+  {
+    "file": "00007-00000061.soi",
+    "k": 4,
+    "voters": 311,
+    "cw": [
+      2
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.09217577706323676,
+    "h": 0.012861736334405127,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000061.soi"
+  },
+  {
+    "file": "00007-00000062.soi",
+    "k": 5,
+    "voters": 403,
+    "cw": [
+      2
+    ],
+    "cycles": 1,
+    "examples": [
+      [
+        1,
+        3,
+        4
+      ]
+    ],
+    "gap": 0.00837468982630285,
+    "h": 0.012406947890818865,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000062.soi"
+  },
+  {
+    "file": "00007-00000063.soi",
+    "k": 3,
+    "voters": 213,
+    "cw": [
+      2
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.073943661971831,
+    "h": 0.04225352112676056,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000063.soi"
+  },
+  {
+    "file": "00007-00000064.soi",
+    "k": 4,
+    "voters": 486,
+    "cw": [
+      2
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.08882030178326472,
+    "h": 0.10082304526748975,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000064.soi"
+  },
+  {
+    "file": "00007-00000065.soi",
+    "k": 8,
+    "voters": 362,
+    "cw": [
+      6
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.04479084451460136,
+    "h": 0.004143646408839796,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000065.soi"
+  },
+  {
+    "file": "00007-00000066.soi",
+    "k": 7,
+    "voters": 78,
+    "cw": [
+      3
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.2072649572649572,
+    "h": 0.012820512820512775,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000066.soi"
+  },
+  {
+    "file": "00007-00000067.soi",
+    "k": 7,
+    "voters": 269,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.12112763320941755,
+    "h": 0.014869888475836424,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000067.soi"
+  },
+  {
+    "file": "00007-00000068.soi",
+    "k": 11,
+    "voters": 902,
+    "cw": [
+      7
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.022727272727272707,
+    "h": 0.0011086474501108556,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000068.soi"
+  },
+  {
+    "file": "00007-00000069.soi",
+    "k": 4,
+    "voters": 369,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.10388437217705493,
+    "h": 0.006775067750677488,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000069.soi"
+  },
+  {
+    "file": "00007-00000070.soi",
+    "k": 4,
+    "voters": 1123,
+    "cw": [
+      2
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.010834075393291731,
+    "h": 0.005342831700801409,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000070.soi"
+  },
+  {
+    "file": "00007-00000071.soi",
+    "k": 7,
+    "voters": 276,
+    "cw": [
+      4
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.06914251207729483,
+    "h": 0.021739130434782594,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000071.soi"
+  },
+  {
+    "file": "00007-00000072.soi",
+    "k": 4,
+    "voters": 158,
+    "cw": [
+      3
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.062236286919831296,
+    "h": 0.0031645569620253333,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000072.soi"
+  },
+  {
+    "file": "00007-00000073.soi",
+    "k": 5,
+    "voters": 157,
+    "cw": [
+      2
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.07882165605095548,
+    "h": 0.006369426751592355,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000073.soi"
+  },
+  {
+    "file": "00007-00000074.soi",
+    "k": 4,
+    "voters": 120,
+    "cw": [
+      3
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.06944444444444464,
+    "h": 0.07500000000000001,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000074.soi"
+  },
+  {
+    "file": "00007-00000075.soi",
+    "k": 9,
+    "voters": 134,
+    "cw": [
+      7
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.06203358208955212,
+    "h": 0.014925373134328401,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000075.soi"
+  },
+  {
+    "file": "00007-00000076.soi",
+    "k": 5,
+    "voters": 255,
+    "cw": [
+      4
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.0289215686274511,
+    "h": 0.045098039215686225,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000076.soi"
+  },
+  {
+    "file": "00007-00000077.soi",
+    "k": 12,
+    "voters": 3419,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.1457629822648835,
+    "h": 0.006142146826557449,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000077.soi"
+  },
+  {
+    "file": "00007-00000078.soi",
+    "k": 20,
+    "voters": 365,
+    "cw": [
+      0
+    ],
+    "cycles": 3,
+    "examples": [
+      [
+        6,
+        12,
+        15
+      ],
+      [
+        7,
+        9,
+        13
+      ],
+      [
+        7,
+        9,
+        14
+      ]
+    ],
+    "gap": 0.06395097332372035,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000078.soi"
+  },
+  {
+    "file": "00007-00000079.soi",
+    "k": 14,
+    "voters": 661,
+    "cw": [
+      5
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.0009891772372861984,
+    "h": 0.0022692889561271024,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000079.soi"
+  },
+  {
+    "file": "00007-00000080.soi",
+    "k": 13,
+    "voters": 537,
+    "cw": [
+      3
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.0599006828057107,
+    "h": 0.0,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000080.soi"
+  },
+  {
+    "file": "00007-00000081.soi",
+    "k": 4,
+    "voters": 561,
+    "cw": [
+      1
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.04634581105169344,
+    "h": 0.013368983957219305,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000081.soi"
+  },
+  {
+    "file": "00007-00000082.soi",
+    "k": 4,
+    "voters": 579,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.01986183074265957,
+    "h": 0.006908462867012077,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000082.soi"
+  },
+  {
+    "file": "00007-00000083.soi",
+    "k": 7,
+    "voters": 587,
+    "cw": [
+      0
+    ],
+    "cycles": 1,
+    "examples": [
+      [
+        3,
+        4,
+        5
+      ]
+    ],
+    "gap": 0.0025553662691651935,
+    "h": 0.0008517887563883608,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000083.soi"
+  },
+  {
+    "file": "00007-00000084.soi",
+    "k": 6,
+    "voters": 564,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.00035460992907798694,
+    "h": 0.005319148936170193,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000084.soi"
+  },
+  {
+    "file": "00007-00000085.soi",
+    "k": 4,
+    "voters": 284,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.02171361502347413,
+    "h": 0.01936619718309862,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000085.soi"
+  },
+  {
+    "file": "00007-00000086.soi",
+    "k": 4,
+    "voters": 279,
+    "cw": [
+      0
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.024492234169653515,
+    "h": 0.007168458781361964,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000086.soi"
+  },
+  {
+    "file": "00007-00000087.soi",
+    "k": 4,
+    "voters": 275,
+    "cw": [
+      1
+    ],
+    "cycles": 0,
+    "examples": [],
+    "gap": 0.028484848484848446,
+    "h": 0.018181818181818188,
+    "source": "https://raw.githubusercontent.com/PrefLib/PrefLib-Data/main/datasets/00007%20-%20ers/00007-00000087.soi"
+  }
+]

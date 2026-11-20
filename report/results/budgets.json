@@ -1,0 +1,26 @@
+[
+  {
+    "case": "Cycle",
+    "cap": 788492,
+    "observed": 27315.666666666668,
+    "diagnosis": 1545.0
+  },
+  {
+    "case": "Near boundary",
+    "cap": 992036,
+    "observed": 154203.0,
+    "diagnosis": 154203.0
+  },
+  {
+    "case": "Skating",
+    "cap": 1579528,
+    "observed": 50224.666666666664,
+    "diagnosis": 4998.0
+  },
+  {
+    "case": "ERS",
+    "cap": 62207200,
+    "observed": 8906664.0,
+    "diagnosis": 8906664.0
+  }
+]
