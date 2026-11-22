@@ -1,0 +1,5 @@
+numpy==2.2.3
+matplotlib==3.10.0
+requests==2.32.3
+# Optional PDF validation/rendering used for this submission:
+pymupdf==2.1

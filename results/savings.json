@@ -1,0 +1,164 @@
+[
+  {
+    "case": "K3",
+    "saving": 2.880696604815356,
+    "ci": [
+      -1.339350499012439,
+      6.8988086315903026
+    ],
+    "paired_duel_difference": 422.4
+  },
+  {
+    "case": "K5",
+    "saving": -31.64506150976364,
+    "ci": [
+      -36.503895004566,
+      -26.91210069117661
+    ],
+    "paired_duel_difference": -8577.28
+  },
+  {
+    "case": "K10",
+    "saving": -36.67489612150204,
+    "ci": [
+      -41.73621704150891,
+      -31.743612952044504
+    ],
+    "paired_duel_difference": -21296.32
+  },
+  {
+    "case": "K20",
+    "saving": -0.4381782924973981,
+    "ci": [
+      -1.1172925105115654,
+      0.0
+    ],
+    "paired_duel_difference": -436.26666666666665
+  },
+  {
+    "case": "K50",
+    "saving": 0.0,
+    "ci": [
+      0.0,
+      0.0
+    ],
+    "paired_duel_difference": 0.0
+  },
+  {
+    "case": "gap0.2",
+    "saving": -30.387273019443995,
+    "ci": [
+      -35.438893007591574,
+      -25.71550020018795
+    ],
+    "paired_duel_difference": -1815.36
+  },
+  {
+    "case": "gap0.1",
+    "saving": -31.64506150976364,
+    "ci": [
+      -36.443155775501985,
+      -26.91702988670442
+    ],
+    "paired_duel_difference": -8577.28
+  },
+  {
+    "case": "gap0.05",
+    "saving": -1.7373483503085418,
+    "ci": [
+      -2.8694147707596325,
+      -0.8268690559589116
+    ],
+    "paired_duel_difference": -1707.68
+  },
+  {
+    "case": "gap0.02",
+    "saving": 0.0,
+    "ci": [
+      0.0,
+      0.0
+    ],
+    "paired_duel_difference": 0.0
+  },
+  {
+    "case": "gap0.01",
+    "saving": 0.0,
+    "ci": [
+      0.0,
+      0.0
+    ],
+    "paired_duel_difference": 0.0
+  },
+  {
+    "case": "cycle3",
+    "saving": 6.790767803293897,
+    "ci": [
+      2.547442625887042,
+      10.802579664877529
+    ],
+    "paired_duel_difference": 1030.48
+  },
+  {
+    "case": "cycle5",
+    "saving": -31.977499940913702,
+    "ci": [
+      -37.54726040810501,
+      -26.63226399573825
+    ],
+    "paired_duel_difference": -8659.2
+  },
+  {
+    "case": "cycle10",
+    "saving": -34.57181803602929,
+    "ci": [
+      -39.29972226281907,
+      -29.949235594180152
+    ],
+    "paired_duel_difference": -20695.52
+  },
+  {
+    "case": "near_cycle",
+    "saving": 0.0,
+    "ci": [
+      0.0,
+      0.0
+    ],
+    "paired_duel_difference": 0.0
+  },
+  {
+    "case": "disagreement",
+    "saving": 3.3770762595209622,
+    "ci": [
+      -1.5519885313282389,
+      8.281357476542192
+    ],
+    "paired_duel_difference": 117.76
+  },
+  {
+    "case": "tie",
+    "saving": 0.0,
+    "ci": [
+      0.0,
+      0.0
+    ],
+    "paired_duel_difference": 0.0
+  },
+  {
+    "case": "Skating",
+    "saving": 0.0,
+    "ci": [
+      0.0,
+      0.0
+    ],
+    "paired_duel_difference": 0.0
+  },
+  {
+    "case": "ERS",
+    "saving": 0.0,
+    "ci": [
+      0.0,
+      0.0
+    ],
+    "paired_duel_difference": 0.0
+  }
+]

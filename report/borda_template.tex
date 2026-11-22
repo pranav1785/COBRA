@@ -1,0 +1,316 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=.75in]{geometry}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,graphicx,booktabs,enumitem,placeins}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,citecolor=blue!45!black]{hyperref}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}\setlength{\parskip}{3pt}
+\setlength{\textfloatsep}{12pt}\setlength{\intextsep}{12pt}
+\makeatletter
+\setlength{\@fptop}{0pt}\setlength{\@fpsep}{12pt}\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+\setcounter{tocdepth}{2}
+\newtheorem{theorem}{Theorem}\newtheorem{lemma}{Lemma}
+\newcommand{\E}{\mathbb E}\newcommand{\Prb}{\mathbb P}
+\newcommand{\fig}[3]{\begin{figure}[!htbp]\centering\includegraphics[width=#2\linewidth]{../figures/#1.pdf}\caption{#3}\label{fig:#1}\end{figure}}
+\hypersetup{pdftitle={COBRA: Confidence-Optimized Borda Ranking Algorithm},pdfauthor={Pranav Bhatnagar and Praveen Kumar S}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}\centering\vspace*{1.0cm}
+{\Large IIT Madras\\DA5453: Learning from Human Preferences\par}
+\vspace{1.2cm}{\Huge\bfseries COBRA\par}\vspace{.4cm}
+{\LARGE Confidence-Optimized Borda\\Ranking Algorithm\par}\vspace{.7cm}
+{\Large An investigation of adaptive comparisons\\and confidence-based information reuse\par}
+\vspace{1.2cm}
+\begin{tabular}{ll}\toprule Team member&Roll number\\\midrule
+Pranav Bhatnagar&ED23B037\\Praveen Kumar S&ED23B038\\\bottomrule\end{tabular}
+\vfill\begin{minipage}{.88\linewidth}
+\textbf{Research question.} Can adaptive pair selection and statistically valid reuse of duel outcomes identify the Borda winner with fewer total comparisons than uniform-opponent Borda learning?
+
+\textbf{Finding.} The answer depends on the instance. Reuse can offset exploration costs on small problems; conservative pairwise intervals and extra adaptive exploration can make the method more expensive as the number of alternatives grows. Our contribution is a controlled investigation with a valid certificate and a safeguard guarantee, rather than a claim of universal improvement.
+\end{minipage}\vspace*{1cm}\end{titlepage}
+\clearpage\hypersetup{pageanchor=true}\pagenumbering{roman}
+{\small\tableofcontents}\clearpage\pagenumbering{arabic}
+
+\section{Introduction and research question}
+Pairwise feedback is natural when people can compare two alternatives more reliably than assign absolute scores. Examples include judging two performances, choosing a preferred search result, and comparing candidates on a ballot. A learner must decide which comparison to request next: feedback can be costly even when computation is cheap. Our starting paper, RUCB~\cite{zoghi}, learns under a strict Condorcet-winner assumption. Such an alternative beats every other alternative with probability greater than one half. Cycles can invalidate that assumption, and even when a Condorcet winner exists, another aggregation rule may prefer a different alternative.
+
+We choose the Borda score as the objective from the first duel. It averages an alternative's winning probabilities against all other alternatives. A maximum exists for every finite preference matrix, although it need not be unique. This choice eliminates the need to diagnose whether a Condorcet winner exists. In the preceding project formulation, diagnosis added a separate cost and could be expensive when pairwise probabilities approached one half. Removing it changes the objective as well as the procedure: we no longer prioritize a Condorcet winner.
+
+The central question is whether \emph{adaptive pair selection and shared confidence information reduce the total number of comparisons needed for Borda identification}. A simple baseline draws a uniform opponent for each designated arm; its binary outcome is already an unbiased Borda sample. COBRA retains each duel in a reciprocal pairwise matrix, constructs valid score intervals, and devotes one quarter of exploration blocks to uncertain comparisons involving a current leader or rival. Three quarters retain the baseline sampling mechanism to guarantee progress. This is a deliberately modest heuristic with a conservative proof.
+
+We executed @@RUNS@@ primary simulations and @@HRUNS@@ separate horizon-aware simulations. The three-arm cycle gives a 6.8\% comparison saving (95\% paired bootstrap interval 2.5--10.8\%). The planted three-arm saving is @@S3@@\%, with an interval that includes zero; for five and ten arms the savings are @@S5@@\% and @@S10@@\%, respectively. Negative savings mean more comparisons. Neither full human-ranking profile was certified within its cap. These results warn against interpreting reuse as automatic efficiency: conservative confidence intervals may not repay its allocation cost. We retain capped runs, ties, and CPU overhead rather than selecting only favorable outcomes.
+
+\section{Problem formulation and motivating examples}
+There are $K\ge2$ alternatives, $\mathcal A=\{1,\dots,K\}$. A duel between distinct alternatives $i,j$ returns $Y=1$ if $i$ wins, with $Y\sim\operatorname{Bernoulli}(p_{ij})$. We assume stationary probabilities, $p_{ij}+p_{ji}=1$, $p_{ii}=1/2$, and independent draws conditional on the selected pair. Pair selection may depend on all past feedback. Neither transitivity nor a parametric score model is assumed. The policy receives outcomes and its own counts; the true matrix is available only to the simulator and evaluator.
+
+Define
+\begin{equation}\label{eq:borda}
+b_i=\frac1{K-1}\sum_{j\ne i}p_{ij},\qquad
+i^\star\in\arg\max_i b_i,\qquad\Delta_i=b_{i^\star}-b_i.
+\end{equation}
+For the termination theorem assume a unique maximizer and write $\Delta_B=\min_{i\ne i^\star}\Delta_i>0$. The implementation is not given these scores or gaps. Exact ties remain valid inputs, but a strict-winner termination guarantee is inapplicable. At a budget cap we return an explicitly uncertified empirical recommendation if no certificate has appeared.
+
+\textbf{Different winners.} Consider
+\[
+P=\begin{pmatrix}.5&.51&.51\\.49&.5&.90\\.49&.10&.5\end{pmatrix},\qquad
+b=(.51,.695,.295).
+\]
+Alternative $A$ is the strict Condorcet winner, but $B$ is the unique Borda winner. COBRA must choose $B$. Calling that outcome a failure to preserve Condorcet priority would evaluate the wrong objective. Borda rewards average performance, and this choice of aggregation rule is substantive rather than universally correct.
+
+\textbf{A unique winner inside a cycle.} With $p_{12}=.866\overline6$, $p_{23}=.8$, and $p_{31}=.733\overline3$, the preferences cycle as $1\succ2\succ3\succ1$. The Borda scores are $(.566\overline6,.466\overline6,.466\overline6)$, with a unique winner and gap $.1$. A symmetric cycle with all three directed probabilities $.8$ instead has three equal Borda scores. Existence of cycles and uniqueness of the Borda winner are separate issues.
+
+\textbf{Two costs.} Identification cost is the number $\tau$ of duels needed for a statistical certificate. Strong Borda regret measures the quality of \emph{both} alternatives requested:
+\begin{equation}\label{eq:regret}
+r_t=b_{i^\star}-\frac{b_{I_t}+b_{J_t}}2,\qquad R_T=\sum_{t=1}^T r_t.
+\end{equation}
+It lies in $[0,1]$ per round. After certification the policy uses self-comparisons $(\hat i,\hat i)$, which incur zero regret if $\hat i$ is correct; these are exploitation actions, not informative Bernoulli samples. Fewer exploration duels need not imply less regret when different pairs have different losses. All reported regret uses~\eqref{eq:regret}, including on matrices that possess a Condorcet winner.
+
+\section{Related work and scope of the contribution}
+RUCB~\cite{zoghi} supplies the original motivation but optimizes a different winner criterion; its regret theorem does not transfer to this method. We therefore do not use RUCB as a supposedly comparable Borda-identification baseline. Jamieson et al.~\cite{jamieson} explicitly study Borda identification, explain the uniform-opponent reduction, and propose Successive Elimination with Comparison Sparsity (SECS). Their method compares active alternatives with a uniformly selected reference and adds a sparsity-based elimination test. Their distribution-dependent lower bound, under probabilities in $[3/8,5/8]$ and $K\ge4$, has inverse-square Borda-gap dependence. It rules out a universal gap-independent shortcut. COBRA does not implement SECS, assume its sparsity condition, or inherit its theorem.
+
+Heckel et al.~\cite{heckel} study active ranking by Borda-type scores without structural assumptions; their objective includes top-set identification. Shah and Wainwright~\cite{shah} show the strength of simple Borda counting in a random-comparison observation model. These works motivate a serious uniform baseline and caution against claiming novelty for active ranking itself. Saha et al.~\cite{saha} analyze Borda regret under adversarial preferences, including a fixed-gap setting. Those results concern their algorithms and assumptions; our stochastic finite-horizon result is proved below rather than imported from that work.
+
+Pairwise confidence intervals, Hoeffding bounds, interval intersection, and winner certificates are standard mechanisms. We investigate their combination with a leader/rival uncertainty heuristic and scheduled uniform exploration. The literature already contains the broad ideas of adaptive Borda learning and exploiting informative opponents. We have not established that this exact heuristic is new, and make no publication-level novelty claim. The course-project contribution is the matched ablation, a self-contained safeguard proof, and an honest examination of when shared confidence information pays for its extra comparisons.
+
+\section{Method: COBRA}
+\subsection{Shared evidence and two valid estimators}
+Store a win matrix $W$, where $w_{ij}$ counts outcomes in which $i$ beat $j$, and $N_{ij}=w_{ij}+w_{ji}$. Each physical duel contributes one win and one increment to the count of its unordered pair. Mirrored count entries represent the same observation; they are not two independent samples. For $n=N_{ij}>0$, set $\hat p_{ij}=w_{ij}/n$. Write $M=K(K-1)/2$ and split the error budget as $\delta_D=\delta_P=\delta/2$.
+
+For $q$ objects define
+\begin{equation}\label{eq:radius}
+\rho_q(n;\eta)=\sqrt{\frac{\log(4qn^2/\eta)}{2n}}\quad(n\ge1).
+\end{equation}
+Each pair interval is $[L_{ij},U_{ij}]=[\hat p_{ij}-\rho_M,\hat p_{ij}+\rho_M]\cap[0,1]$. Unseen pairs have $[0,1]$; diagonal entries equal $1/2$. Reverse intervals satisfy $L_{ji}=1-U_{ij}$. The row intervals are
+\begin{equation}\label{eq:rows}
+\ell_i^P=\frac{\sum_{j\ne i}L_{ij}}{K-1},\qquad
+u_i^P=\frac{\sum_{j\ne i}U_{ij}}{K-1}.
+\end{equation}
+Adaptive allocation does not invalidate these intervals: they concern the probability of a particular pair, not a mixture of nonuniform opponents.
+
+In a \emph{safe} block, designate the least-sampled arm according to direct-sample counts $c_i$, breaking ties by index, and draw each opponent independently and uniformly from its other $K-1$ arms. Only the designated arm receives a direct Borda sample. Its sum $s_i$ and count $c_i$ yield direct intervals $[\ell_i^D,u_i^D]$ using~\eqref{eq:radius} with $q=K$, error budget $\delta_D$, and empirical mean $s_i/c_i$. Before its first sample this interval is $[0,1]$. Adaptive-block outcomes do not enter $s_i,c_i$.
+
+Combine the evidence by intersection:
+\begin{equation}\label{eq:intersection}
+\ell_i=\max(\ell_i^D,\ell_i^P),\qquad u_i=\min(u_i^D,u_i^P).
+\end{equation}
+These estimators can be correlated; simultaneous coverage, rather than independence between estimators, justifies intersection. Naively averaging all adaptively chosen wins would target the chosen-opponent distribution instead of~\eqref{eq:borda}. COBRA never makes that substitution.
+
+\subsection{Adaptive selection, safeguard, and certificate}
+Use blocks of $B=128$ duels, freezing the choice rule within each block. Three safe blocks are followed by one adaptive block. In an adaptive block, compute row means from $\hat P$, substituting $1/2$ for unseen probabilities. Let $a$ maximize this empirical score. Let $b\ne a$ maximize the pairwise row upper bound $u_b^P$. The pair $a,b$ is not necessarily the next duel: the difference satisfies
+\begin{equation}\label{eq:diff}
+(K-1)(b_a-b_b)=2p_{ab}-1+\sum_{j\notin\{a,b\}}(p_{aj}-p_{bj}).
+\end{equation}
+Assign weight 2 to unordered pair $\{a,b\}$, weight 1 to other pairs incident on $a$ or $b$, and zero elsewhere. Choose the unordered pair maximizing weight times interval width $U_{ij}-L_{ij}$, with uniform random tie-breaking. The common factor $1/(K-1)$ is irrelevant for this maximization. This is a width-reduction heuristic, not an exact information-gain optimizer: it ignores how many future samples are needed to reduce a width and the value of changing the leader.
+
+Stop at the first inspected block boundary with
+\begin{equation}\label{eq:certificate}
+\ell_i>\max_{j\ne i}u_j.
+\end{equation}
+Return the unique certified arm. At the cap return the largest empirical score, explicitly marked uncertified. No arm is permanently eliminated, so all opponents remain available for safe sampling. A nearly tied pair is not tested merely to decide whether it crosses one half.
+
+\begin{center}\fbox{\begin{minipage}{.94\linewidth}
+\textbf{Algorithm 1: Confidence-Optimized Borda Ranking Algorithm}\par
+\textbf{Input:} $K$, error level $\delta$, block size $B$, duel cap $H$; no matrix or gap.\par
+Initialize $W,N,s,c=0$ and block index $q=0$.\par
+While fewer than $H$ duels have been used:
+\begin{enumerate}[nosep,leftmargin=1.5em]
+\item If $q\bmod4\ne3$, choose $i=\arg\min c_i$ and run a safe block with fresh uniform opponents. Otherwise choose $(i,j)$ by~\eqref{eq:diff}'s weighted-width rule and run a repeated-pair block.
+\item Update the reciprocal pair matrix once per duel. Update $s_i,c_i$ only for designated safe observations.
+\item Compute~\eqref{eq:radius}--\eqref{eq:intersection}. If~\eqref{eq:certificate} holds, return the certified arm. Otherwise increment $q$.
+\end{enumerate}
+At exhaustion return an empirical recommendation with its uncertified status. For regret evaluation, self-duel a certified arm for all remaining rounds.
+\end{minipage}}\end{center}
+\fig{schematic}{.95}{The two sampling branches feed the same pair matrix. Only the safe branch feeds the direct Borda estimator. Both estimators support a common stopping certificate. The evaluator alone knows the ground-truth matrix and Borda scores.}
+
+\textbf{Worked updates.} Take the three-arm cycle from Section 2 and use $B=1$ only to make the bookkeeping visible. Initially all intervals are $[0,1]$. In iteration 1 designate arm 1; suppose the random opponent is 2 and arm 1 wins. Then $w_{12}=1,w_{21}=0,N_{12}=N_{21}=1$, and $(s_1,c_1)=(1,1)$. In iteration 2, arm 2 is the least-sampled arm; suppose its opponent is 3 and it loses. Then $w_{32}=1,N_{23}=N_{32}=1$, and $(s_2,c_2)=(0,1)$. No direct sample is added for arm 3. At this confidence level both observed-pair intervals are still clipped to $[0,1]$, so neither iteration certifies a winner despite extreme empirical means. Iteration 3 designates arm 3. Iteration 4 applies the adaptive rule, which gives the leader--rival edge twice the weight of their other incident edges. Production experiments use $B=128$ and integer aggregate counts; the bookkeeping and certificate are identical.
+
+\section{Theoretical analysis}
+\subsection{A. Uniform-opponent concentration}
+\begin{theorem}[Fixed-count baseline]
+Fix $\delta\in(0,1)$ and a unique Borda winner. If every arm receives
+\[
+n_B=\left\lceil\frac8{\Delta_B^2}\log\frac{2K}{\delta}\right\rceil
+\]
+designated uniform-opponent samples, the empirical largest score identifies the winner with probability at least $1-\delta$, using $Kn_B$ duels.
+\end{theorem}
+\begin{proof}
+For a designated arm $i$, conditional on the history its next fresh opponent is uniform and independent, giving $\Prb(Y=1)=\sum_{j\ne i}p_{ij}/(K-1)=b_i$. Independent fresh draws give an i.i.d. Bernoulli sequence for that arm. Hoeffding gives $\Prb(|\hat b_i-b_i|>\epsilon)\le2e^{-2n\epsilon^2}$. With $\epsilon=\Delta_B/4$ and the displayed $n_B$, a union bound across $K$ arms gives simultaneous accuracy with failure probability at most $\delta$. On that event $\hat b_{i^\star}-\hat b_j\ge\Delta_j-\Delta_B/2\ge\Delta_B/2>0$ for every competitor.
+\end{proof}
+This is an analysis budget depending on an unknown gap. The implementation does not choose its sample count from $n_B$. Moreover, this fixed-count statement alone does not validate repeatedly inspecting fixed-$n$ intervals. For the actual sequential stopping rule we use the next lemma.
+
+\subsection{B. Simultaneous confidence and adaptive reuse}
+\begin{lemma}[Count-uniform coverage]\label{lem:coverage}
+For $q$ Bernoulli streams with fixed respective means, intervals using~\eqref{eq:radius} simultaneously cover all means at every positive local sample count, with failure probability at most $\eta\pi^2/12<\eta$. Streams need not be mutually independent. An adaptive rule may decide which stream to reveal next, provided each revealed draw has its stream's stationary independent-draw law.
+\end{lemma}
+\begin{proof}
+For one stream and a fixed count $n$, Hoeffding bounds its two-sided failure probability by
+\[
+2e^{-2n\rho_q(n;\eta)^2}=\frac{\eta}{2qn^2}.
+\]
+Summing over $q$ streams and all $n\ge1$ gives $\eta\sum_{n\ge1}1/(2n^2)=\eta\pi^2/12$. Equivalently, imagine an infinite sequence of outcomes for each unordered pair generated in advance. An adaptive choice reveals the next unused outcome from one sequence. The union event already covers every possible count, including the random counts at stopping. No conditioning on a chosen random count is substituted into a fixed-count probability bound. Clipping to $[0,1]$ cannot remove the true mean.
+\end{proof}
+Apply the lemma to $M$ unordered-pair streams with $\eta=\delta_P$ and to $K$ direct Borda streams with $\eta=\delta_D$. Safe designated outcomes have the required law even when the designated arm depends on past observations. The two events can be dependent, but their failure probabilities add to at most $\delta\pi^2/12<\delta$. Reciprocity supplies the reverse bounds without allocating another independent confidence budget. Taking averages proves $b_i\in[\ell_i^P,u_i^P]$ for every arm, and intersection with the direct intervals preserves coverage. The directional ablation instead treats $K(K-1)$ ordered streams separately and pays that larger union-bound factor.
+
+\begin{theorem}[Valid certificate]
+With probability at least $1-\delta$, every certificate emitted by COBRA, at any inspected time, names the unique true Borda winner.
+\end{theorem}
+\begin{proof}
+On simultaneous coverage,~\eqref{eq:certificate} implies $b_i\ge\ell_i>u_j\ge b_j$ for each $j\ne i$. Thus a wrong or nonunique winner cannot pass the certificate on that event. This conclusion concerns correctness, not guaranteed termination at a finite cap.
+\end{proof}
+
+\subsection{C. Safeguarded sample complexity and regret}
+Let $\bar n$ be any integer such that $\rho_K(n;\delta_D)\le\Delta_B/8$ for every $n\ge\bar n$. It is finite and is used only in analysis. With equal complete blocks, after $S$ safe blocks the designated counts differ by at most $B$: the next safe block always goes to a current minimum. Therefore $S B\ge K(\bar n+B)$ is sufficient for every $c_i\ge\bar n$. If at most $J$ otherwise-full blocks are shortened to hit logging checkpoints, add $J$ safe blocks conservatively. Define
+\begin{equation}\label{eq:N0}
+S_0=\left\lceil\frac{K(\bar n+B)}B\right\rceil+J,\qquad
+N_0=4B\left\lceil\frac{S_0}{3}\right\rceil.
+\end{equation}
+An untruncated run has $J=0$; the experiments force at most three interior checkpoints, so $J\le3$. Every four scheduled blocks contain three safe blocks; an incomplete final block at the cap cannot increase this bound on work before certification in an uncapped run.
+
+\begin{theorem}[Conservative safeguard guarantee]\label{thm:sample}
+Under the model assumptions and $\Delta_B>0$, on the simultaneous confidence event COBRA certifies the true winner by $N_0$ duels. Thus $\Prb(\tau>N_0)\le\delta$, where an uncapped process is understood. The adaptive choice rule can be replaced arbitrarily without invalidating this guarantee, provided the three-safe/one-adaptive schedule and certificate are retained.
+\end{theorem}
+\begin{proof}
+At $c_i\ge\bar n$, both the empirical error and direct interval radius are at most $\Delta_B/8$ on the good event. Hence $\ell_{i^\star}^D\ge b_{i^\star}-\Delta_B/4$ and $u_j^D\le b_j+\Delta_B/4$. Their separation is at least $\Delta_j-\Delta_B/2\ge\Delta_B/2>0$. Intersection only raises lower bounds and lowers upper bounds. Once the safe counts reach the stated threshold, the common certificate must therefore hold. Balancing safe counts and the block schedule gives~\eqref{eq:N0}. Adaptive observations can help earlier but are not needed for this worst-case argument.
+\end{proof}
+For an explicit order, put $x=\Delta_B^{-2}\ge1$, $L=\log(256Kx/\delta_D)$, and $\bar n=\lceil512xL\rceil$. For $n=\bar n\le513xL$, direct substitution yields
+\[
+\log(4Kn^2/\delta_D)\le2L+2\log L+8.33\le4L,
+\]
+since $L\ge\log512$. Consequently $\rho_K(n;\delta_D)^2\le1/(256x)<\Delta_B^2/64$. The radius decreases for $n\ge1$ here: differentiating its squared expression gives a derivative with sign $2-\log(4Kn^2/\delta_D)<0$. This proves the required condition for all larger $n$ and gives
+\begin{equation}\label{eq:sampleorder}
+N_0=O\!\left(\frac K{\Delta_B^2}\log\frac K{\delta\Delta_B}+KB+JB\right).
+\end{equation}
+This conservative constant is not a prediction of observed stopping time. Nor does the proof establish a better dependence for the adaptive heuristic. It covers the full implemented policy through its safeguard.
+
+\begin{theorem}[Finite-horizon expected Borda regret]
+Run COBRA at confidence $\delta$ until certification or horizon $T$, then self-duel any certified winner. Its regret satisfies
+\[
+\E R_T\le\min(T,N_0)+T\delta.
+\]
+With a known horizon and $\delta=T^{-2}$, fixed $B,J$ give
+\[
+\E R_T=O\!\left(\min\!\left\{T,\frac K{\Delta_B^2}\log\frac{KT}{\Delta_B}+KB+JB\right\}\right)+T^{-1}.
+\]
+\end{theorem}
+\begin{proof}
+On the good event, at most $\min(T,N_0)$ exploration rounds each cost at most one, followed by correct zero-regret exploitation. On its complement the total cost is at most $T$. Taking expectations proves the first statement; substituting $T^{-2}$ into~\eqref{eq:sampleorder} proves the second.
+\end{proof}
+For fixed positive gap and fixed $K$, this is logarithmic in $T$; its displayed dependence includes $K$, gap, and logarithmic factors. Writing simply $O(K\log T)$ would hide the crucial $\Delta_B^{-2}$ dependence and the $\log K$ term. A fixed-$\delta=.05$ identification run gives time-uniform correctness but the regret argument still has a $.05T$ failure term. An anytime confidence interval is not automatically an anytime logarithmic expected-regret theorem. The separate $T^{-2}$ simulations use a different error level for each supplied horizon.
+
+\subsection{D. Computation, limitations of the bound}
+Direct score maintenance needs $O(K)$ learner statistics and $O(1)$ work per observation, with $O(K)$ work for a full certificate check. COBRA stores $O(K^2)$ pair statistics, makes $O(1)$ pair updates per duel, and recomputes pair intervals, row bounds, and adaptive scores in $O(K^2)$ work per inspected block. Its exploration cost is therefore $O(\tau K^2/B+\tau)$ in the straightforward implementation. A safe simulation block aggregates opponents into at most $K-1$ integer counts; this reduces simulation overhead but not the charged number of duels. All timings include policy computation and simulation, not hypothetical human response latency.
+
+The benchmark also retains the full comparison-count matrix for uniform baselines to measure allocation. This instrumentation uses $O(K^2)$ memory in our runner, although the baseline's decision rule itself requires only $O(K)$ memory. Our proof supplies a gap-dependent upper bound, not an information-theoretically optimal constant, an expected stopping-time bound on the bad event, or a claim of $\sqrt K$ scaling. The lack of adaptive-specific improvement is deliberate: formal correctness is retained even if the heuristic allocates poorly.
+
+\section{Experimental methodology}
+\subsection{Algorithms and fairness controls}
+\textbf{Uniform Borda (fixed budget)} cycles through least-sampled designated arms, draws uniform opponents, and returns an uncertified recommendation at the cap. \textbf{Uniform + stop} uses the same rule but checks direct anytime intervals after each block, spending its whole error budget on direct scores. Comparing these isolates stopping rather than informative pair allocation. \textbf{COBRA} uses the full method above. \textbf{Random adaptive block} replaces only the one adaptive block by a uniformly random unordered pair, keeping the safeguard and confidence intersection unchanged. This is the main allocation control.
+
+\textbf{Direct-only certificate} retains COBRA's shadow pair matrix solely for the identical adaptive selection rule, but ignores its row intervals for stopping; it uses the same $\delta/2$ direct budget as COBRA. Up to the earlier stopping time, these two variants have identical allocation and feedback under the same seed. Their difference isolates access to the pairwise certificate. \textbf{Forward evidence only} also keeps this same shadow allocation, but discards mirrored outcomes when constructing its certificate's ordered-pair intervals. This tests the value of reciprocal evidence, while paying the appropriate larger union-bound correction; it is not an independence claim. \textbf{No safeguard} makes every block adaptive and has a valid certificate but no proved sample bound. It is a secondary candidate, not the chosen algorithm. The safeguarded method is primary because its guarantee does not depend on heuristic exploration behavior; it was not selected after searching the performance table.
+
+All modes receive the same matrix, cap, and error level, and use the same Borda objective. Each replication has separate selection and feedback random generators, initialized by seed $2026000+s$ and seed plus $10^6$, respectively. Identical-allocation ablations share feedback exactly until one stops. Other algorithms share starting seeds but need not consume the same pair streams, so we do not claim exact outcome coupling under different allocations. Batch size is 128 for every mode. Blocks are shortened at prescribed horizons, without observing outcomes to choose their lengths. Opponent multinomials followed by binomial pair counts simulate exactly the distribution of independent uniform-opponent draws under a block-frozen designation. These are integer comparisons, not fractional pseudo-observations.
+
+\subsection{Experiments A--D: synthetic preference matrices}
+\textbf{A: number of alternatives.} Use $K\in\{3,5,10,20,50\}$ and set $p_{0j}=.5+a$, $p_{j0}=.5-a$, all other distinct probabilities to $.5$, with $a=g(K-1)/K$ and $g=.1$. The true Borda gap is exactly $g$: the winner has score $.5+a$, others $.5-a/(K-1)$. Thus this experiment changes $K$ without silently shrinking the Borda gap. Pairwise ties are permitted. There are 100 replications for $K\le10$ and 30 for $K=20,50$; the cap is $10^5$ duels. The larger settings retain the five core modes to limit runtime.
+
+\textbf{B: Borda gap.} At $K=5$ vary the verified gap over $.20,.10,.05,.02,.01$. Use 100 seeds and cap $10^5$ for the first three, 30 seeds and cap $2\cdot10^5$ for the last two. A cap is a censoring threshold, not evidence of successful identification. We do not fit a scaling exponent to saturated points. Decreasing the gap should require substantially more evidence, even when empirical recommendations are often already correct.
+
+\textbf{C: cycles and pairwise heterogeneity.} Add directed circulations of amplitude $.30$ to disjoint triples: increase $p_{ij},p_{j\ell},p_{\ell i}$ and decrease their reverse probabilities. Every row sum is unchanged, so each Borda score and gap is preserved. Matrices remain valid because the base margins and perturbations stay inside $[0,1]$. Compare the resulting $K=3,5,10$ instances against A. This isolates a change in nontransitivity and probability heterogeneity from a change in the objective's difficulty parameter. Include a nearly symmetric three-arm cycle with gap $.01$ and the explicit Condorcet/Borda-disagreement matrix. The construction provides balanced and heterogeneous probabilities; it does not span every practically relevant sparse-comparison structure.
+
+\textbf{D: robustness.} A symmetric $.8$ three-cycle has an exact three-way Borda tie. With 30 seeds and a $10^5$ cap, report certificate failures and recommendations in the maximizing set. Its accuracy statistic is set-valued correctness, not identification of a unique true winner. Near-ties are covered in B and C. No run is removed because it is difficult, wrong, or uncertified.
+
+\subsection{Metrics, uncertainty, and horizon experiments}
+The main cost statistic is the \emph{restricted mean} $\E[\min(\tau,H)]$, estimated by the mean charged duel count. Every budget-exhausted run contributes its full cap. We additionally retain per-seed counts, quartiles, certification status, empirical correctness, allocation matrices, CPU seconds, and regret at $10^3,10^4,10^5$ where within the cap. Sample savings are $100(\bar N_U-\bar N_C)/\bar N_U$; negative values are regressions. When certification is incomplete, this compares restricted budgets rather than unknown uncapped stopping times.
+
+Means have 95\% normal standard-error bars in the scaling and regret figures; these are descriptive across replications. Savings intervals use 3,000 paired bootstrap resamples of seed indices with fixed bootstrap seed 879. They quantify simulation variation conditional on the chosen matrix, not uncertainty from sampling the original human population. Fixed-$\delta=.05$ regret curves exploit after certification, otherwise continue learning to the horizon. Separate horizon-aware runs use $T\in\{10^3,10^4,10^5\}$, $\delta=T^{-2}$, the easy $K=3,g=.2$ matrix, and 30 seeds per method per horizon. Those runs illustrate the confidence cost of the theorem's regime; they do not establish its asymptotic rate empirically.
+
+\section{Results: comparisons, allocation, and regret}
+\subsection{Total comparison cost and scaling}
+Table~\ref{tab:cost} includes every primary instance, including capped and tied settings. The three-arm planted case has a modest saving, but the five- and ten-arm planted cases reverse that result. Figure~\ref{fig:scaling} shows why extending a small-instance observation into a general improvement claim would be unsafe. As $K$ grows, many row contributions need adequate precision before conservative row intervals can separate. The direct safeguard remains dependable, but only three quarters of blocks feed direct scores; an ineffective pairwise certificate can therefore leave COBRA paying an allocation surcharge.
+
+\begin{table}[!htbp]\centering\small
+\begin{tabular}{lrrrr}\toprule Instance&Uniform + stop&COBRA&COBRA cert.&Saving (\%)\\\midrule
+@@TABLE@@
+\bottomrule\end{tabular}
+\caption{Mean charged total duels, rounded to integers. All runs, including cap hits, are included. Certification fractions distinguish completion from cap saturation; the tie row has no unique target. Fixed-budget Uniform uses the full stated cap and is not the denominator for savings.}\label{tab:cost}\end{table}
+\fig{scaling}{.89}{Scaling at fixed true Borda gap $.1$. Error bars are 95\% standard-error intervals. The $10^5$ cap censors difficult settings; a flat capped curve is not a favorable scaling law.}
+\fig{gaps}{.89}{Gap sensitivity at five arms. Caps increase to $2\cdot10^5$ for the two smallest gaps. Lines connect the observed restricted means, not a fitted inverse-square law.}
+
+Small gaps in Figure~\ref{fig:gaps} expose a distinction between practical recommendation and certification. An empirical leader can be correct long before its lower confidence bound exceeds every rival's upper bound. At the smallest gaps a large budget can still end without a certificate. This is consistent with the inverse-square gap dependence in the conservative guarantee and existing lower bounds, but cap-limited measurements do not verify that rate. Pairwise margins close to one half no longer trigger a separate diagnostic stage; the remaining difficulty is distinguishing average scores.
+
+\subsection{Matched ablations: allocation and information reuse}
+\begin{table}[!htbp]\centering\small
+\begin{tabular}{lrrrr}\toprule Method on cycle3&Mean duels&SD&Certified&Accuracy\\\midrule
+@@ABTABLE@@
+\bottomrule\end{tabular}
+\caption{One hundred replications on the three-arm cycle, cap $10^5$. The shadow-allocation controls separate access to reused evidence from pair selection. Accuracy is the empirical recommendation's correctness at stopping or exhaustion.}\label{tab:ablation}\end{table}
+\fig{ablation}{.92}{Distribution of total comparisons on cycle3; boxes show median and interquartile range, whiskers use the standard 1.5-IQR rule. Outlier points are omitted visually, but remain in all numeric summaries.}
+Compare COBRA with the random-pair control to assess the weighted-width allocation while preserving the safeguard and certificate. Compare COBRA with its direct-only certificate control to assess the value of shared row bounds under identical allocation. These are different questions. Reuse can improve over the direct-only control even when COBRA loses to the cheaper uniform baseline. Consequently, a positive reuse ablation alone does not demonstrate a reduction in total comparisons against uniform learning.
+
+The forward-only control discards a valid implication of each duel: observing $i$ beat $j$ also says $j$ lost to $i$. Its more conservative coverage correction and lost reverse evidence can delay certification. This comparison does not justify counting one physical duel as two independent Borda samples. The no-safeguard candidate tests whether devoting all blocks to uncertain pairs helps enough to offset losing designated samples; its empirical behavior is reported without a termination theorem.
+
+\fig{heatmap}{.94}{Actual unordered-pair counts for a matched-seed, $10^4$-duel cycle5 illustration. Both halves of each symmetric matrix depict the same comparisons. Adaptive allocation differs visibly from random allocation, but concentration by itself does not prove faster identification.}
+The heatmaps expose the intended mechanism. Leader/rival edges can receive extra samples, and comparisons unrelated to the current contenders can receive fewer adaptive samples. However, the row-average certificate still includes all opponents. Concentrating comparisons does not make the unobserved contributions vanish, and an early empirical leader can redirect effort away from a future competitor. A variance-aware or gap-difference confidence construction could be less conservative; neither its correctness nor a performance gain is assumed here.
+
+\subsection{Accuracy, regret, and computation}
+\fig{regret}{.87}{Strong Borda regret on cycle3 at fixed error level $.05$, comparing the three main certificate-based methods. Correct certification permits zero-regret self-duels. Uncertified runs continue exploring and remain in the mean.}
+Confidence-based stopping reduces unnecessary exploration relative to a baseline forced to continue to its cap. We therefore use Uniform + stop as the substantive denominator for comparison savings. On cycle3 at $10^5$ rounds, mean regret is about 1,011 for Uniform + stop versus 884 for COBRA. Empirical accuracy can be high even where certification is incomplete: a high success rate from finitely many seeds does not replace a confidence certificate. Regret depends on which pairs are explored as well as on the stopping count.
+
+The separate horizon-aware experiment uses tighter confidence as $T$ increases, asking for stronger evidence before exploitation. Three finite horizons cannot demonstrate an asymptotic logarithmic law; that statement rests on the proof and its assumptions. Supporting accuracy-by-budget and horizon-aware plots are retained with the study outputs. The main regret figure deliberately shows only the common fixed-confidence regime.
+
+\fig{runtime}{.87}{Measured simulation-plus-policy time per charged duel. These are local wall-clock measurements, not human query latency. The full pairwise updates and confidence scans add overhead to the simple baseline.}
+The primary execution took @@MINUTES@@ minutes on the recorded local Python environment. On the ten-arm planted setting, mean per-run times were @@CPUU@@ seconds for Uniform + stop and @@CPUC@@ seconds for COBRA; their charged duel counts also differ. Per-duel measurements in Figure~\ref{fig:runtime} help separate those effects. The straightforward matrix implementation is computationally more expensive, as predicted by its $O(K^2)$ block scans. Fewer human comparisons could justify that overhead in another application, but compute savings are not established here.
+
+\section{Implementation on real preference datasets}
+\subsection{World Junior Ladies Free Skate: full 24-alternative profile}
+We use PrefLib's Skate collection~\cite{preflib,skate}, file \texttt{00006-00000028.soc}, titled \emph{Worldjunior Ladies Free Skate}. It contains nine complete strict judge rankings over 24 alternatives. For each pair, $p_{ij}$ is the fraction of judges placing $i$ ahead of $j$. No smoothing or restriction to a three-arm cycle is used. The full profile has two strict three-cycles but also a strict Condorcet winner. Cycles among other alternatives do not rule out a global Condorcet winner. This is a human-judgment application with contradictory local preferences, not an example of full-profile Condorcet nonexistence.
+
+Candidate 24 is the unique Borda maximizer; its gap is about $.0242$. We selected this existing profile before the new performance runs to preserve continuity with the earlier data source, and evaluated the full matrix. COBRA certified in @@SCERT@@ runs at the $5\cdot10^5$ cap. The corresponding restricted means and negative or positive savings are in Tables~\ref{tab:cost} and~\ref{tab:ci}; empirical correctness without certification remains an uncertified recommendation. We make no population-level claim from nine judges.
+
+\subsection{Electoral Reform Society: full 26-candidate election}
+We use PrefLib's ERS collection~\cite{preflib,ers}, file \texttt{00007-00000005.soi}, titled \emph{ERS Set 5}. It has 104 ballots over 26 candidates, with incomplete strict rankings. Ranked candidates precede unranked candidates; all unranked candidates on a ballot are tied jointly last. A tied pair contributes $1/2$ to each candidate. This completion rule is explicit and affects the resulting Borda scores. We use every candidate and ballot, with no smoothing. Pairwise ties at probability one half are valid inputs.
+
+This full empirical matrix has 13 strict three-cycles and no strict Condorcet winner. We selected it as the first previously audited ERS profile with those properties and a unique Borda maximum, before looking at the new algorithm comparison. COBRA certified in @@ECERT@@ runs within the $5\cdot10^5$ cap. A cap hit demonstrates that the current conservative method has not resolved the instance; it is not silently counted as identification. It remains mathematically meaningful to target the Borda maximizer even though no candidate beats everyone pairwise.
+
+\begin{table}[!htbp]\centering\small\begin{tabular}{lrrrrr}\toprule
+Profile&$K$&Voters&3-cycles&Borda ID&Gap\\\midrule
+@@REALTABLE@@
+\bottomrule\end{tabular}\caption{Full empirical profiles. Candidate IDs are the original one-based identifiers. Cycles count unordered triples satisfying a strict directed majority cycle.}\label{tab:real}\end{table}
+
+For both datasets, we simulate independent Bernoulli duels from the resulting empirical matrix. These are not new live human experiments: the matrix is treated as ground truth conditional on the observed rankings. For ERS, the half-vote treatment of tied preferences corresponds to a fair random tie outcome. Fresh simulated draws do not increase the number of independent human voters. The original rankings, source URLs, processing rule, derived matrices, and matrix hashes are retained so the numerical evaluation can be audited.
+
+\begin{table}[!htbp]\centering\small\begin{tabular}{lrrr}\toprule
+Full profile and method&Certified&Accuracy&Seconds/run\\\midrule
+@@PERFORMANCE@@
+\bottomrule\end{tabular}\caption{Real-data recommendations and certificates at the common $5\cdot10^5$ cap. Accuracy is empirical Borda-target correctness, not a certificate.}\end{table}
+\fig{real_regret}{.88}{Full-profile Borda regret from actual requested pairs. Solid lines denote skating and dashed lines ERS. An adaptive method can have different regret even when both methods exhaust the same comparison cap.}
+At $T=500{,}000$, mean skating regret is about 245,252 for Uniform + stop versus 203,748 for COBRA; ERS gives 58,367 versus 51,246. These lower-regret exploration trajectories are a positive observation even though neither method certifies either profile. They do not establish lower identification cost or an asymptotic regret improvement.
+
+\section{Discussion, limitations, and reflection}
+\begin{table}[!htbp]\centering\small\begin{tabular}{lrr}\toprule
+Instance&Saving (\%)&95\% paired bootstrap interval\\\midrule
+@@CITABLE@@
+\bottomrule\end{tabular}\caption{Simulation uncertainty for restricted-mean savings. Negative intervals indicate a regression under the tested matrix and cap; they are not uncertainty intervals over new human populations.}\label{tab:ci}\end{table}
+
+\textbf{What does the comparison establish?} The simplest convincing experiment is the matched cycle3 ablation: one allocation stream is evaluated with and without access to shared row bounds, then compared with Uniform + stop. It separates the usefulness of reused evidence from the total cost of acquiring it. The scaling experiment then tests whether that conclusion survives increasing $K$ at fixed Borda gap. The results support an instance-dependent benefit, not a blanket recommendation to replace uniform learning.
+
+\textbf{Why might uniform learning be enough?} A designated uniform-opponent result estimates a whole Borda score directly. Pairwise intervals estimate many component probabilities separately and then average their worst-case endpoints. Union bounds and row averaging discard cancellation and can be conservative. Reusing an outcome in two rows does not guarantee tighter intervals than this direct estimator. The safeguard guarantees eventual progress, but slows the rate of designated observations by a factor approaching $4/3$ when the adaptive blocks provide no earlier certificate. This explains a regression without contradicting valid confidence coverage.
+
+\textbf{What changes without a Condorcet winner?} Nothing in the active code tests for its existence. Both cycles and the full ERS election are handled under the same Borda definitions. On the disagreement matrix the correct target is $B$, and empirical accuracy uses that target rather than the Condorcet winner. Removing diagnosis avoids a separate near-half pair-testing cost, but our results do not constitute a controlled numerical comparison with the archived hierarchical-objective project. Its objective was different.
+
+\textbf{What is guaranteed?} Certificates are simultaneously valid under stationary independent pair draws; the implemented safeguard gives a high-probability, gap-dependent completion bound and a finite-horizon expected Borda-regret bound. The adaptive heuristic itself has no sharper theorem here. Exact Borda ties invalidate finite strict-winner termination, while very small gaps can make the supplied cap insufficient. Fixed-confidence identification and horizon-aware regret runs answer distinct questions. No claim of universal $O(\sqrt K\log T)$ scaling or gap-free $O(K\log T)$ regret follows.
+
+\textbf{What remains uncertain?} The finite collection of planted and circulation matrices is not a model of every application. Its tied suboptimal scores deliberately control the smallest Borda gap but may understate benefits from eliminating clearly inferior arms. Real-data evaluation has only two profiles, and incomplete-ballot completion is a modeling choice. Thirty large-instance seeds give limited power for rare errors. The study compares straightforward baselines and controlled variants, not every leading Borda algorithm; it does not establish superiority to SECS or active-ranking methods. A useful next investigation would compare difference-specific confidence bounds or successive elimination under the same budget and objective, rather than add more heuristic switches.
+
+\textbf{Validation and learning.} The 17 deterministic and integration tests check matrix reciprocity, diagonal values, scores, the disagreement target, counts, radii, interval symmetry, row coverage, certification, absence of oracle inputs, Borda regret, self-exploitation cost, uniform sampling, edge cases, reproducibility, ties, budget exhaustion, and non-duplicated evidence. The policy API has no true-matrix or gap parameter; ground truth is confined to construction, outcome simulation, and evaluation. Results and tables are generated from retained per-seed outputs. Tests and finite simulations support implementation consistency; the probability guarantee rests on the proof, not on an absence of observed errors.
+
+\section{Conclusion}
+COBRA now learns the Borda winner from its first comparison, without Condorcet diagnosis or a change of objective. Its shared pairwise confidence matrix permits valid reuse under adaptive sampling, and its scheduled uniform blocks preserve a conservative finite-sample guarantee. The main empirical finding is mixed: shared evidence can help small instances, but a simple adaptive allocation is not reliably cheaper than confidence-based uniform Borda learning. Larger matrices, small gaps, and conservative componentwise intervals can outweigh the benefit. The defensible outcome is a quantified trade-off with explicit failures and assumptions, rather than a new universal regret improvement.
+
+\FloatBarrier
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{plain}\bibliography{references}
+\noindent\textbf{Project repository:} \url{https://github.com/pranav1785/COBRA}
+\end{document}
