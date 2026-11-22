@@ -29,10 +29,11 @@ class Learner:
     'no_reuse' keeps a shadow matrix for IDENTICAL allocation, but uses only direct
     intervals to stop. 'directional' discards reverse-pair evidence for bounds.
     """
-    def __init__(self,k,mode='cobra',delta=.05):
+    def __init__(self,k,mode='cobra',delta=.05,leader_weight=2.):
         if k<2 or not 0<delta<1: raise ValueError('Invalid K or confidence')
         if mode not in ('fixed','uniform','cobra','random_pair','no_reuse','directional','pair_only'): raise ValueError(mode)
-        self.k=k;self.mode=mode;self.delta=delta;self.block=0
+        if not np.isfinite(leader_weight) or leader_weight<=0: raise ValueError('Positive leader weight required')
+        self.k=k;self.mode=mode;self.delta=delta;self.block=0;self.leader_weight=float(leader_weight)
         self.w=np.zeros((k,k));self.n=np.zeros((k,k),dtype=np.int64)
         self.dw=np.zeros((k,k));self.dn=np.zeros((k,k),dtype=np.int64)
         self.s=np.zeros(k);self.c=np.zeros(k,dtype=np.int64)
@@ -67,7 +68,7 @@ class Learner:
         upper=(pu.sum(1)-.5)/(self.k-1);upper[a]=-np.inf; b=int(upper.argmax())
         width=pu-pl; weight=np.zeros_like(width)
         weight[a,:]=1;weight[:,a]=1;weight[b,:]=1;weight[:,b]=1
-        weight[a,b]=weight[b,a]=2;np.fill_diagonal(weight,0)
+        weight[a,b]=weight[b,a]=self.leader_weight;np.fill_diagonal(weight,0)
         contribution=np.triu(weight*width,1);best=contribution.max()
         choices=np.argwhere((contribution==best)&np.triu(np.ones_like(width,dtype=bool),1))
         i,j=choices[int(rng.integers(len(choices)))];return ('pair',int(i),int(j))

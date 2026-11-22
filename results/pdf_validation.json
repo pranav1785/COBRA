@@ -3,6 +3,6 @@
   "main_pages": 15,
   "font_point_size": 11,
   "unresolved_references": 0,
-  "visual_review": "All pages inspected; proof and figure details checked",
-  "pdf_sha256": "dea56ca41797f67152becff178ec21f681951a7b4eb9c99ded510f55252f0918"
+  "visual_review": "All pages inspected; certification table, shortened-block proof, sensitivity table, Figure 4 and conclusion checked",
+  "pdf_sha256": "9a85dcd64af4a2cc9e84e8f49520ab1bbc317606ca91e4fb1b697b9006e99da3"
 }

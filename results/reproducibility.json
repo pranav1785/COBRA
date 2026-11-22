@@ -1,0 +1,198 @@
+{
+  "summary_groups_recomputed": 116,
+  "primary_records": 8380,
+  "representative_replays": [
+    {
+      "case": "K3",
+      "mode": "fixed",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "K3",
+      "mode": "uniform",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "K3",
+      "mode": "cobra",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "K3",
+      "mode": "random_pair",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "K3",
+      "mode": "no_reuse",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "K5",
+      "mode": "fixed",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "K5",
+      "mode": "uniform",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "K5",
+      "mode": "cobra",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "K5",
+      "mode": "random_pair",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "K5",
+      "mode": "no_reuse",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "cycle3",
+      "mode": "fixed",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "cycle3",
+      "mode": "uniform",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "cycle3",
+      "mode": "cobra",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "cycle3",
+      "mode": "random_pair",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "cycle3",
+      "mode": "no_reuse",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "disagreement",
+      "mode": "fixed",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "disagreement",
+      "mode": "uniform",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "disagreement",
+      "mode": "cobra",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "disagreement",
+      "mode": "random_pair",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "disagreement",
+      "mode": "no_reuse",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "Skating",
+      "mode": "fixed",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "Skating",
+      "mode": "uniform",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "Skating",
+      "mode": "cobra",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "Skating",
+      "mode": "random_pair",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "Skating",
+      "mode": "no_reuse",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "ERS",
+      "mode": "fixed",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "ERS",
+      "mode": "uniform",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "ERS",
+      "mode": "cobra",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "ERS",
+      "mode": "random_pair",
+      "seed": 2026000,
+      "matched": true
+    },
+    {
+      "case": "ERS",
+      "mode": "no_reuse",
+      "seed": 2026000,
+      "matched": true
+    }
+  ],
+  "default_weight_replays": 200,
+  "matched_fields": [
+    "duels",
+    "counts",
+    "regret",
+    "certified",
+    "estimate",
+    "correct",
+    "trace"
+  ],
+  "excluded_field": "cpu_seconds is elapsed time and varies between runs",
+  "all_checks_passed": true
+}

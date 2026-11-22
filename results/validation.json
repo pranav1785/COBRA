@@ -1,6 +1,7 @@
 {
   "records": 8380,
   "horizon_records": 180,
+  "weight_records": 600,
   "groups": 116,
   "wrong_certificates": [],
   "all_numeric_checks_passed": true

@@ -35,8 +35,10 @@ python -m pip install -r requirements.txt
 python -m unittest discover -s tests -v
 python experiments/prepare_data.py
 python experiments/borda_study.py
+python experiments/weight_sensitivity.py
 python experiments/analyse_borda.py
 python experiments/validate_borda.py
+python experiments/check_reproducibility.py
 python report/build_borda_report.py
 ```
 
@@ -57,6 +59,14 @@ Algorithms share confidence targets and block sizes. Matched shadow-allocation a
 Real datasets are PrefLib Worldjunior Ladies Free Skate (24 alternatives, nine judges, full matrix) and ERS Set 5 (26 candidates, 104 ballots, full matrix). Unranked candidates are jointly last; tied voter preferences contribute half. Evaluations simulate new Bernoulli outcomes from empirical probabilities, not new human responses. No smoothing or three-arm subset selection is used.
 
 The three-arm planted case provides a small positive result. Larger planted cases show that uniform stopping can be cheaper. Read the report and `results/summary.json` for exact values, certification rates, negative findings and caps.
+
+## Submission revision checks
+
+Table 1 reports certification counts for both Uniform + stop and COBRA. Both full real profiles have 30/30 correct recommendations but 0/30 certificates for each method: these are not certified identifications, and equal capped counts do not determine uncapped efficiency.
+
+The additional weight experiment executes 600 trials on cycle3 and planted K5 at weights 1, 2, 4, holding seeds, cap, confidence, blocks and checkpoints fixed. `results/weight_runs.json.gz` retains the trials and `results/weight_summary.json` retains settings and paired bootstrap contrasts. The 200 default-weight reruns match the original trajectories exactly, excluding elapsed time. Weights 2 and 4 have equal stopping counts in all 200 matched runs; 199 also match all retained trajectory fields, so equal stopping cost must not be described as complete trajectory identity.
+
+The 21 tests include the actual shortened-block schedule, confidence intersection and certificate, and the conservative N0 formula over 108 parameter combinations. `cobra/guarantees.py` is analysis-only; its sample threshold is not supplied to the policy. The numerical audit checks the primary, horizon and sensitivity outputs. The separate reproducibility check independently recalculates 116 summary groups and exactly replays 30 representative runs spanning synthetic and both real profiles. Elapsed timings are machine/load dependent and are excluded from exact replay matching.
 
 ## History
 

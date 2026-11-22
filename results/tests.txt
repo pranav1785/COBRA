@@ -15,8 +15,12 @@ test_tie_exhaustion (test_borda.BordaTests.test_tie_exhaustion) ... ok
 test_two_arm_and_all_modes (test_borda.BordaTests.test_two_arm_and_all_modes) ... ok
 test_uniform_opponents (test_borda.BordaTests.test_uniform_opponents) ... ok
 test_updates_not_double_counted (test_borda.BordaTests.test_updates_not_double_counted) ... ok
+test_N0_covers_safe_counts_even_with_short_blocks (test_safeguard.SafeguardTests.test_N0_covers_safe_counts_even_with_short_blocks) ... ok
+test_actual_schedule_with_checkpoint_cuts (test_safeguard.SafeguardTests.test_actual_schedule_with_checkpoint_cuts) ... ok
+test_paper_interval_intersection_exactly_matches_code (test_safeguard.SafeguardTests.test_paper_interval_intersection_exactly_matches_code) ... ok
+test_weight_default_and_validation (test_safeguard.SafeguardTests.test_weight_default_and_validation) ... ok
 
 ----------------------------------------------------------------------
-Ran 17 tests in 0.379s
+Ran 21 tests in 0.685s
 
 OK

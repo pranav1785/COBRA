@@ -37,7 +37,19 @@ def main():
         expected_final=expected+(r['horizon']-r['duels'])*(b.max()-b[r['estimate']])
         assert np.isclose(expected_final,r['trace'][-1]['regret'],atol=1e-7)
         if r['certified'] and not r['correct']:certwrong.append(('horizon',r['mode'],r['seed'],r['horizon']))
-    result=dict(records=len(runs),horizon_records=len(hr),groups=len(summary),wrong_certificates=certwrong,all_numeric_checks_passed=True)
+    wr=json.loads(gzip.decompress((ROOT/'results/weight_runs.json.gz').read_bytes()))
+    ws=json.loads((ROOT/'results/weight_summary.json').read_text())
+    for r in wr:
+        p=np.array(cases[r['case']]['p']);b=scores(p);n=np.array(r['counts'])
+        assert n.sum()==2*r['duels'] and np.array_equal(n,n.T)
+        expected=float(np.sum(n*(b.max()-(b[:,None]+b[None,:])/2))/2)
+        assert np.isclose(expected,r['regret'],atol=1e-7)
+        if r['certified'] and not r['correct']:certwrong.append(('weight',r['case'],r['leader_weight'],r['seed']))
+    for g in ws['summary']:
+        rr=[r for r in wr if r['case']==g['case'] and r['leader_weight']==g['weight']]
+        assert len(rr)==g['seeds'];assert np.isclose(np.mean([r['duels'] for r in rr]),g['mean'])
+        assert sum(r['certified'] for r in rr)==g['certified']
+    result=dict(records=len(runs),horizon_records=len(hr),weight_records=len(wr),groups=len(summary),wrong_certificates=certwrong,all_numeric_checks_passed=True)
     (ROOT/'results/validation.json').write_text(json.dumps(result,indent=2));print(result)
 
 if __name__=='__main__':main()

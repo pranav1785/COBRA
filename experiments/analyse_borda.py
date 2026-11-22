@@ -41,8 +41,9 @@ def main():
     plt.yscale('log');plt.xticks(x,names,rotation=15);plt.ylabel('Restricted mean total duels');plt.legend();save('summary')
     # Full per-seed distributions expose regressions.
     c='cycle3';modes=['uniform','cobra','random_pair','no_reuse','directional','pair_only']
-    plt.boxplot([[r['duels'] for r in runs if r['case']==c and r['mode']==m] for m in modes],tick_labels=[LABEL[m] for m in modes],showfliers=False)
-    plt.xticks(rotation=18,ha='right');plt.ylabel('Total duels (cycle3)');save('ablation')
+    short=['Uniform','COBRA','Random','Direct-only','Forward-only','No safeguard']
+    plt.boxplot([[r['duels'] for r in runs if r['case']==c and r['mode']==m] for m in modes],tick_labels=short,showfliers=False)
+    plt.xticks(rotation=10,ha='right');plt.ylabel('Total duels (cycle3)');save('ablation')
     for m in ('fixed','uniform','cobra','random_pair'):
         rr=[r for r in runs if r['case']=='cycle3' and r['mode']==m]
         x=[1000,10000,100000];acc=[];cert=[]
